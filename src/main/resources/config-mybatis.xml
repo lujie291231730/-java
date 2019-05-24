@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "./mybatis-3-config.dtd">
+<configuration>
+
+	<environments default="seed">
+		<environment id="seed">
+			<transactionManager type="JDBC" />
+			<!-- 配置数据库连接信息 -->
+			<dataSource type="com.seed.utils.SeedDataSourceFactory" />
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="sqlxml/sqlserver/sqlorg.xml" />
+		<mapper resource="sqlxml/sqlserver/sqlsystem.xml" />
+		<mapper resource="sqlxml/sqlserver/sqluser.xml" />		
+		<mapper resource="sqlxml/sqlserver/sqlwspub.xml" />
+		<mapper resource="sqlxml/sqlserver/sqlfrm.xml" />
+		<mapper resource="sqlxml/sqlserver/sqlcrm.xml" />
+		<mapper resource="sqlxml/sqlserver/sqlstud.xml" />
+		
+	</mappers>
+
+</configuration>

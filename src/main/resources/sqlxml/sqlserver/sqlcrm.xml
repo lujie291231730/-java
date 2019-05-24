@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+<mapper namespace="com.seed.mapper.sqlserver.CrmMapper">
+	<select id="GetCust" statementType="CALLABLE" parameterType="com.seed.entity.crm.CrmCust" resultType="com.seed.entity.crm.CrmCust" >
+		{call dbo.P_Get_CrmCust(
+			#{custid,javaType=String,jdbcType=VARCHAR},
+			#{item.getaction,javaType=String,jdbcType=VARCHAR}
+		)}
+	</select>
+	<select id="GetListCust" statementType="CALLABLE" parameterType="com.seed.entity.crm.CrmCust" resultType="com.seed.entity.crm.CrmCust" >
+		{call dbo.P_Get_CrmCust(
+			#{item.getaction,javaType=String,jdbcType=VARCHAR}
+		)}
+	</select>
+	<select id="SearchCust" statementType="CALLABLE" parameterType="com.seed.entity.crm.CrmCust" resultType="com.seed.entity.crm.CrmCust">
+	    {call dbo.P_Search_Cust(
+	    #{search.search,javaType=String,jdbcType=VARCHAR},
+	    #{search.start,javaType=int,jdbcType=INTEGER},
+	    #{search.end,javaType=int,jdbcType=INTEGER},
+	    #{search.total,javaType=int,jdbcType=INTEGER,mode=OUT},
+	    #{search.userid,javaType=String,jdbcType=VARCHAR},
+	    #{search.getaction,javaType=String,jdbcType=VARCHAR}
+	    )}
+	  </select>
+	<update id="SaveCrmCust" statementType="CALLABLE" parameterType="com.seed.entity.crm.CrmCust" flushCache="true">
+		{call dbo.P_Save_CrmCust(
+			#{custid,javaType=String,jdbcType=VARCHAR},
+			#{custtype,javaType=String,jdbcType=VARCHAR},
+			#{custname,javaType=String,jdbcType=NVARCHAR},
+			#{provid,javaType=String,jdbcType=VARCHAR},
+			#{cityid,javaType=String,jdbcType=VARCHAR},
+			#{areaid,javaType=String,jdbcType=VARCHAR},
+			#{industryclass,javaType=String,jdbcType=VARCHAR},
+			#{custpost,javaType=String,jdbcType=NVARCHAR},
+			#{custaddress,javaType=String,jdbcType=NVARCHAR},
+			#{linkman,javaType=String,jdbcType=NVARCHAR},
+			#{linktele,javaType=String,jdbcType=VARCHAR},
+			#{linkfax,javaType=String,jdbcType=VARCHAR},
+			#{custemail,javaType=String,jdbcType=VARCHAR},
+			#{website,javaType=String,jdbcType=VARCHAR},
+			#{custstatus,javaType=String,jdbcType=VARCHAR},
+			#{bankid,javaType=String,jdbcType=VARCHAR},
+			#{enterbank,javaType=String,jdbcType=NVARCHAR},
+			#{bankaccount,javaType=String,jdbcType=VARCHAR},
+			#{entertax,javaType=String,jdbcType=VARCHAR},
+			#{indcode,javaType=String,jdbcType=NVARCHAR},
+			#{taxcode,javaType=String,jdbcType=NVARCHAR},
+			#{deptcode,javaType=String,jdbcType=NVARCHAR},
+			#{shortname,javaType=String,jdbcType=NVARCHAR},
+			#{custdesc,javaType=String,jdbcType=NVARCHAR},
+			#{remark,javaType=String,jdbcType=NVARCHAR},
+			#{dutyuser,javaType=String,jdbcType=VARCHAR},
+			#{dutyusername,javaType=String,jdbcType=NVARCHAR},
+			#{tranuser,javaType=String,jdbcType=VARCHAR},
+			#{trandate,javaType=String,jdbcType=VARCHAR},
+			#{deal.action,javaType=int,jdbcType=INTEGER}
+		)}
+	</update>
+
+
+</mapper>

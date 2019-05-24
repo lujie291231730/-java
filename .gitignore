@@ -1,0 +1,8 @@
+target/
+test/
+
+/build/
+# /.externalToolBuilders/
+/.metadata/
+# /.settings/
+/.git/
